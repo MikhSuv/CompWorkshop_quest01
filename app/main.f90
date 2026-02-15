@@ -11,5 +11,8 @@ program main
   write(*,*) n
   call say_hello()
   write(*,*) matrix
+  call write_matrix("result.dat", matrix, n)
+
+  deallocate(matrix)
 
 end program main
