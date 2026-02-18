@@ -14,7 +14,7 @@ module matrixio
       real(dp), allocatable, intent(out) :: matrix(:,:) ! квадратная матрица n*n
       integer, intent(out) :: n ! порядок матрицы
 
-      integer :: iunit, iostatus 
+      integer :: iunit, iostatus, i
       character(len=256) :: line ! для чтения первой строки
 
       open(newunit=iunit, file=filename, status='old', &
@@ -35,10 +35,12 @@ module matrixio
       ! Выделение памяти под матрицу
       allocate(matrix(n,n))
 
-      read(iunit, *, iostat = iostatus) matrix
-      if (iostatus /= 0) then
-        error stop 'Error occured while reading matrix'
-      end if
+      do i = 1, n
+        read(iunit, *, iostat = iostatus) matrix(i, :)
+        if (iostatus /= 0) then
+          error stop 'Error occured while reading matrix'
+        end if
+      end do
 
       close(iunit)
 
@@ -62,7 +64,7 @@ module matrixio
       write(ounit, '("# ", i0)') n
 
       do i = 1, n
-        write(ounit, '(*(f12.6, 1x))') matrix(:, i)
+        write(ounit, '(*(f12.6, 1x))') matrix(i, :)
       end do
       
       close(ounit)

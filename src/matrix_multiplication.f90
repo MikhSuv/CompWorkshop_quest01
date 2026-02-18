@@ -16,9 +16,9 @@ contains
 
     do i = 1, n
       do j = 1, n 
-        prod(j, i) = 0
+        prod(i, j) = 0
         do k = 1, n
-          prod(j, i) = prod(j, i) + second_matrix(j, k)*first_matrix(k, i)
+          prod(i, j) = prod(i, j) + second_matrix(k, j)*first_matrix(i, k)
         end do
       end do
     end do
