@@ -50,7 +50,7 @@ module matrixio
       ! Записывает матрицу и ее размер в файл в формате
       ! # N
       ! Матрица N*N
-      character(len=*), intent(in) :: filename ! название файла 
+      character(len=*), intent(in) :: filename 
       real(dp), intent(in) :: matrix(:, :) ! квадратная матрица n*n
       integer, intent(in) :: n ! порядок матрицы
 
@@ -70,6 +70,5 @@ module matrixio
       close(ounit)
 
     end subroutine write_matrix
-
 
 end module matrixio

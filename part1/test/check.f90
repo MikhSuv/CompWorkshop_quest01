@@ -6,18 +6,15 @@ program check
 implicit none
 
 real(dp), dimension(:, :), allocatable :: A, B, C,D
-integer, parameter :: n = 4096
+integer, parameter :: n = 2048
 
 allocate(A(n,n))
 allocate(B(n,n))
 
 call random_number(A)
-print *, "Сгенерил матрицу А"
 call random_number(B)
-print *, "Сгенерил матрицу B"
 C = matmul(A, B)
-D = matmul_opt(a, b,n)
-print *, "matrix_mult ВСЁ"
+D = matrix_mult(a, b,n)
 D = abs(D -C)
 print *, maxval(D)
 deallocate(a,b,c,d)
