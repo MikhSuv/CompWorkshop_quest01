@@ -6,14 +6,14 @@ program main
   
   type(tridiag_matrix) :: A, B
   type(pentadiag_matrix) :: C
-  ! integer, parameter :: n = 10
+  integer, parameter :: n = 10000000
 
   call A%read_tdmatrix('data1.dat')
   call B%read_tdmatrix ('data2.dat')
   ! call A%generate(n)
   ! call B%generate(n)
-  call A%print_matrix
-  call B%print_matrix()
+  ! call A%print_matrix
+  ! call B%print_matrix
   C = tdmatmul(A, B)
   call C%write_pdmatrix('result.dat')
 
