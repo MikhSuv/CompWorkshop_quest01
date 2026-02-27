@@ -114,7 +114,7 @@ module tridiagonal_matrix
             C%diags(3, i) = C%diags(3, i) + A%lower_diag(i-1) * B%upper_diag(i-1)
         end if
         if (i < n) then
-            C%diags(3, i) = C%diags(3, i) + A%upper_diag(i) * B%lower_diag(i+1)
+            C%diags(3, i) = C%diags(3, i) + A%upper_diag(i) * B%lower_diag(i)
         end if
       end do
       ! Первая наддиагональ
