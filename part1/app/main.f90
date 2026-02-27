@@ -25,13 +25,13 @@ program main
   call random_number(B)
   print *, "Сгенерировал матрицу B"
   print *, "Вычисление произведения функцией matmul"
-  C = matmul(A, B)
+  C = matmul(A, B) ! Эталонное значение
   print *, "Вычисление законченно"
 
   print *, "Вычисление произведения функцией matrix_mult"
   D = matrix_mult(a, b, n)
   print *, "Вычисление законченно"
-  D = abs(D-C) 
+  D = abs(D-C) ! Сравнение с эталоном
   print *,"Mаксимальная погрешность:", maxval(D) ! Выводит максимальную погрешность
   deallocate(a,b,c,d)
 
